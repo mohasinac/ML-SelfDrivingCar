@@ -1,5 +1,7 @@
 Self Driving Car using Neural Networks
 
+Thanks to [David Singleton](https://blog.davidsingleton.org/nnrccar/) for getting us started.
+
 Modules:
 android/ - An android app which streams video frames to the Driver app running on a PC.
 
