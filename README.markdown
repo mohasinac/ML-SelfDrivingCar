@@ -1,24 +1,24 @@
-Self Driving Car using Neural Networks
+#Self Driving Car using Neural Networks
 
 Thanks to [David Singleton](https://blog.davidsingleton.org/nnrccar/) for getting us started.
 
-Modules:
-android/ - An android app which streams video frames to the Driver app running on a PC.
+##Modules:
+###android/ - An android app which streams video frames to the Driver app running on a PC.
 
-arduino/ - The arduino sketch allowing Driver to send commands to the car via Serial interface.
+###arduino/ - The arduino sketch allowing Driver to send commands to the car via Serial interface.
 
-Driver/  - Java applet which acts as both a TCP server, receiving streamed image frames from a video streaming app on a phone and a user interface allowing a human driver to control the car with the cursor keys or mouse
+###Driver/  - Java applet which acts as both a TCP server, receiving streamed image frames from a video streaming app on a phone and a user interface allowing a human driver to control the car with the cursor keys or mouse
 
-train/   - Octave code to train the neural network.
+###train/   - Octave code to train the neural network.
 
 
-For the Android App :
+##For the Android App :
 
-Method 1:
+###Method 1:
 
 Download the code from my github and import it in android studio. Say yes to all the grades queries and when the download and sync of gradle is finished run the app to check if it works. This is what I find easy to do for those who work with android studio.
 
-Method 2:
+###Method 2:
 
 Download and install apache ANT as well as Android SDK in your system. Then go to the directory of the code using command prompt and type:
 
@@ -28,17 +28,17 @@ ant install
 This will build and install the android app.
 
 
-For Arduino 
+##For Arduino 
 
 The simplest way to run the sketch is to open it using Arduino IDE and simply upload it on your Arduino from the menu. If you find any issues with the port of your Arduino just try to install the drivers or google them.
 
-For Driver App
+##For Driver App
 
 In order to run the driver app which is a java applet you require the RxTx Serial library and Apache Commons Math library. You can search for them online. Then keep those dependencies in the source folder and then build the Driver app using the commands
 cd Driver/
 ant
 
-Run the Driver app using
+##Run the Driver app using
 
 ant Driver [serial port path]
 
@@ -52,13 +52,14 @@ Driver starts in Manual mode - confirm that you can drive the car using the arro
 
 Once you've gotten used to driving the car, you're ready to record examples for the neural network to learn from. Press 'R' to enter record mode and drive the car in the same environment you'd like it to drive itself. You can return to manual mode by pressing 'M' and re-enter record at any time by pressing 'R' again. When done, press 'M' and wait for the queue of samples to be written to disk. You're now ready to train the network.
 
-Training:
+##Training:
 
 Pre-process the recorded data into octave matrices:
 
 change into the train/ directory and copy the temporary features file above to nnrccar.features
 run the parse.py script which reads the features and writes two files X.dat and y.dat. X.dat is an octave matrix containing the input frames and y.dat is a matrix containing the labels corresponding to how you drove the car.
-Train:
+
+##Train:
 
 Follow the instructions in train/README to get set up with a solution to Ex4, then Run octave and start the nnrccar script:
 
@@ -75,5 +76,5 @@ Copy these files to the Driver/data directory - note that they need to be rename
 Run Driver again, and press 'A' to enter auto mode. Now the self driving car is ready.
 
 
-Edit: 
+###Edit: 
 All the links to necessary dependencies can be found in the Readme files inside each modules. Plus download the version of libraries depending on your OS.
